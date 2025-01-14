@@ -42,10 +42,10 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="hidden md:flex space-x-4 items-center">
-                    <Link href="/" className="text-gray-300 hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">Home</Link>
-                    <Link href="/about" className="text-gray-300 hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">About</Link>
-                    <Link href="/contact" className="text-gray-300 hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">Contact</Link>
-                    <Link href="/blog" className="text-gray-300 hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">Blog</Link>
+                    <Link href="/" className=" hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">Home</Link>
+                    <Link href="/about" className=" hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">About</Link>
+                    <Link href="/contact" className=" hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">Contact</Link>
+                    <Link href="/blog" className=" hover:text-white hover:bg-gray-700  transition-transform duration-300 ease-in-out transform hover:scale-105 px-2 py-1 rounded">Blog</Link>
                     <div className="flex gap-4 items-center">
                         <Button className="mx-1">Login</Button>
                         <Button>SignUp</Button>
@@ -53,36 +53,35 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="md:hidden">
-                    <Sheet>
-                        <span className="mr-6">
-                            <ModeToggle />
-                        </span>
-                        <SheetTrigger>
-                            {/* Hamburger Icon */}
-                            <svg className=" w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                            </svg>
-                        </SheetTrigger>
+    <Sheet>
+        <span className="mr-6">
+            <ModeToggle />
+        </span>
+        <SheetTrigger>
+            {/* Hamburger Icon */}
+            <svg className=" w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </SheetTrigger>
 
-                        <SheetContent>
-                            <SheetHeader>
-                                <SheetTitle className="font-bold my-4">Kuldeep Blog</SheetTitle>
-                                <SheetDescription>
-                                    <div className="flex flex-col gap-6">
-                                        <Link href="/" className="text-gray-300 hover:text-white">Home</Link>
-                                        <Link href="/about" className="text-gray-300 hover:text-white">About</Link>
-                                        <Link href="/contact" className="text-gray-300 hover:text-white">Contact</Link>
-                                        <Link href="/blog" className="text-gray-300 hover:text-white">Contact</Link>
-                                        <div>
-                                            <Button className="mx-1 text-xs">Login</Button>
-                                            <Button className="mx-1 text-xs">SignUp</Button>
-                                        </div>
-                                    </div>
-                                </SheetDescription>
-                            </SheetHeader>
-                        </SheetContent>
-                    </Sheet>
-
+        <SheetContent>
+            <SheetHeader>
+                <SheetTitle className="font-bold my-4">Kuldeep Blog</SheetTitle>
+                <SheetDescription>
+                    <div className="flex flex-col gap-6">
+                        <Link href="/" className=" hover:text-white" onClick={() => Sheet.close()}>Home</Link>
+                        <Link href="/about" className=" hover:text-white" onClick={() => Sheet.close()}>About</Link>
+                        <Link href="/contact" className=" hover:text-white" onClick={() => Sheet.close()}>Contact</Link>
+                        <Link href="/blog" className=" hover:text-white" onClick={() => Sheet.close()}>Blogs</Link>
+                        <div>
+                            <Button className="mx-1 text-xs">Login</Button>
+                            <Button className="mx-1 text-xs">SignUp</Button>
+                        </div>
+                    </div>
+                </SheetDescription>
+            </SheetHeader>
+        </SheetContent>
+    </Sheet>
                 </div>
             </div>
 

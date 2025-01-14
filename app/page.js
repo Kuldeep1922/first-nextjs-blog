@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,39 +10,68 @@ import {
 import Navbar from "@/components/ui/Navbar";
 import Image from "next/image";
 import Typed from "typed.js";
-import React,{useRef,useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 export default function Home() {
-   const el = useRef(null);
+  const el = useRef(null);
 
-   useEffect(() => {
-     const typed = new Typed(el.current, {
-      strings: ["Coding", "Machine Learning", "Data Science", "Developement"],
-       typeSpeed: 50,
-     });
+  useEffect(() => {
+    const typed = new Typed(el.current, {
+      strings: [
+        "Coding",
+        "Machine Learning",
+        "Data Science",
+        "Developement",
+        "Artificial Intelligence",
+        "Deep Learning",
+        "Neural Networks",
+        "Natural Language Processing",
+        "Computer Vision",
+        "Big Data",
+        "Cloud Computing",
+        "Internet of Things",
+        "Blockchain",
+        "Cybersecurity",
+        "Augmented Reality",
+        "Virtual Reality",
+        "Quantum Computing",
+        "Edge Computing",
+        "DevOps",
+        "Microservices",
+        "Kubernetes",
+        "Docker",
+        "Agile Methodology",
+        "Scrum",
+        "Continuous Integration",
+      ],
+      typeSpeed: 50,
+    });
 
-     return () => {
-       // Destroy Typed instance during cleanup to stop animation
-       typed.destroy();
-     };
-   }, []);
-   
+    return () => {
+      // Destroy Typed instance during cleanup to stop animation
+      typed.destroy();
+    };
+  }, []);
+
   return (
     <div>
-      <section className="bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png')] bg-cover bg-no-repeat md:bg-white md:dark:bg-gray-900">
-        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+      <section className="bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png')] bg-cover bg-no-repeat md:bg-slate-500 md:dark:bg-gray-900">
+        <div className="grid max-w-screen-xl px-4 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-              Payments tool for software companies <span ref={el} className="underline"/>
+              <span
+                ref={el}
+                className="underline bg-gradient-to-r from-[#e5e838] to-[#00fff2] bg-clip-text text-transparent"
+              />
             </h1>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            <p className="max-w-2xl mb-6 font-light text-gray-800 lg:mb-8 md:text-lg lg:text-xl dark:text-white">
               From checkout to global sales tax compliance, companies around the
               world use Flowbite to simplify their payment stack.
             </p>
             <a
-              href="#"
-              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+              href="/blog"
+              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white bg-slate-600 dark:text-red-600 dark:border dark:bg-white  rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
             >
-              Get started
+              Go to Blogs
               <svg
                 className="w-5 h-5 ml-2 -mr-1"
                 fill="currentColor"
@@ -177,7 +206,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-200 dark:bg-gray-900 ">
+      <section className="py-12 bg-gray-200 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8 text-black dark:text-white">
             Our Blogs
@@ -187,38 +216,92 @@ export default function Home() {
             stories from our team. Stay tuned for the latest updates and
             articles that inspire and inform.
           </p>
-          <div className="relative">
-            <Carousel className="w-full overflow-hidden relative">
-              <CarouselContent className="flex gap-6">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem key={index} className="flex-none w-1/3">
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-                          <h4 className="font-semibold text-black dark:text-white mb-2">
-                            Blog Title {index + 1}
-                          </h4>
-                          <p className="mb-4 text-gray-600 dark:text-gray-300">
-                            A brief description of the blog post goes here.
-                          </p>
-                          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">
-                            Read More
-                          </button>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              {/* Previous Button */}
-              <CarouselPrevious className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow hover:bg-gray-700">
-                ←
-              </CarouselPrevious>
-              {/* Next Button */}
-              <CarouselNext className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow hover:bg-gray-700">
-                →
-              </CarouselNext>
-            </Carousel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "C Programming Tutorial",
+                description: "This is a tutorial for learning C programming.",
+                date: "02/03/2025",
+                author: "Harry",
+                link: "/blog/c-programming-tutorial",
+              },
+              {
+                title: "ChatGPT vs. Gemini",
+                description:
+                  "Explore the differences between ChatGPT and Gemini.",
+                date: "08/02/2025",
+                author: "Harry",
+                link: "/blog/chatgpt-vs-gemini",
+              },
+              {
+                title: "C++ Programming Tutorial",
+                description:
+                  "Learn C++ programming from basics to advanced concepts.",
+                date: "09/02/2025",
+                author: "Harry",
+                link: "/blog/cpp-programming-tutorial",
+              },
+              {
+                title: "CSS Tutorial",
+                description:
+                  "Learn the fundamentals and advanced topics of CSS.",
+                date: "11/02/2025",
+                author: "Harry",
+                link: "/blog/css-tutorial",
+              },
+              {
+                title: "Markdown Syntax for Files, Widgets, Wikis",
+                description:
+                  "Discover how to utilize Markdown for effective documentation and sharing.",
+                date: "02/03/2025",
+                author: "Harry",
+                link: "/blog/markdown-syntax",
+              },
+              {
+                title: "Docker Tutorial",
+                description: "Learn Docker from basics to advanced concepts.",
+                date: "02/03/2025",
+                author: "Harry",
+                link: "/blog/docker-tutorial",
+              },
+              {
+                title: "Java Programming Tutorial",
+                description:
+                  "Learn Java programming from basics to advanced concepts.",
+                date: "02/03/2025",
+                author: "Harry",
+                link: "/blog/java-programming-tutorial",
+              },
+              {
+                title: "Tailwind CSS Blog",
+                description:
+                  "Dive deep into Tailwind CSS for rapid UI development.",
+                date: "02/03/2025",
+                author: "Harry",
+                link: "/blog/tailwind-css-blog",
+              },
+            ].map((blog, index) => (
+              <div
+                key={index}
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden p-6 mx-3"
+              >
+                <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">
+                  {blog.title}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  {blog.description}
+                </p>
+                <a
+                  href={blog.link}
+                  className=" hover:underline border border-red-500  p-2 bg-blue-600 rounded-xl"
+                >
+                  Read More
+                </a>
+                <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
+                  {blog.date} by Kuldeep
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

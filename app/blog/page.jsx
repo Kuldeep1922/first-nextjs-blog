@@ -19,27 +19,8 @@ const blogs = dirContent.map((fileName) => {
     slug: fileName.replace(/\.md$/, '') // Assuming files are markdown
   };
 });
-// const blogs = [
-//   {
-//     title: 'Blog Post 1',
-//     description: 'This is the description for blog post 1.',
-//     slug: 'blog-post-1',
-//     date: '2023-10-01',
-//     author: 'Author 1',
-//     image: 'https://via.placeholder.com/150'
-//   },
-//   {
-//     title: 'Blog Post 2',
-//     description: 'This is the description for blog post 2.',
-//     slug: 'blog-post-2',
-//     date: '2023-10-02',
-//     author: 'Author 2',
-//     image: '' // Image not available
-//   },
-//   // Add more blog objects as needed
-// ];
 
-const BlogCard = ({ title, description, slug, date, author, image }) => (
+export const BlogCard = ({ title, description, slug, date, author, image }) => (
   <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
     <img src={image || 'https://via.placeholder.com/150'} alt={title} className="w-full h-48 object-cover" />
     <div className="p-4">
@@ -47,7 +28,7 @@ const BlogCard = ({ title, description, slug, date, author, image }) => (
       <p className="text-gray-700 dark:text-gray-300 mb-4">{description}</p>
       {/* <Button as="a" href={`/blogs/${slug}`} className="text-blue-500 hover:underline text-black dark:text-white"></Button> */}
       <Link href={`/blog/${slug}`} className={buttonVariants({ variant: "" })}>Read More</Link>
-      <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">{date} by {author}</p>
+      <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">{date} by Kuldeep</p>
     </div>
   </div>
 );

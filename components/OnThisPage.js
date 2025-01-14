@@ -11,19 +11,19 @@ const OnThisPage = ({ htmlContent }) => {
     tempDiv.innerHTML = htmlContent;
     const h2Elements = tempDiv.querySelectorAll('h2');
     const h2Data = Array.from(h2Elements).map(h2 => ({
-      text: h2.textContent,
-      id: h2.id
+      text: h2.textContent, // Get the text content of each h2 element
+      id: h2.id // Get the id attribute of each h2 element
     }));
-    setHeadings(h2Data);
-  }, [htmlContent]);
+    setHeadings(h2Data); // Update the state with the extracted headings
+  }, [htmlContent]); // Re-run the effect when htmlContent changes
 
   return (
-    <div className="on-this-page absolute top-24 md:right-48 lg:right-1/4 hidden lg:block">
+    <div className="on-this-page absolute top-24 md:right-48 lg:right-1 overflow-hidden hidden lg:block">
       <h2 className='text-md font-bold my-2'>On This Page</h2>
       <ul className='text-sm space-y-1'>
         {headings.map((heading, index) => (
-          <li key={index}>
-            <a href={`#${heading.id}`}>{heading.text}</a>
+          <li className='underline' key={index}>
+            <a href={`#${heading.id}`}>{heading.text}</a> {/* Link to the heading's id */}
           </li>
         ))}
       </ul>

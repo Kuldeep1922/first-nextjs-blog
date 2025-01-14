@@ -52,7 +52,7 @@ export default async function Page({ params }) {
     return (
         <div className="m-auto my-2 max-w-xl p-6  shadow-md rounded-lg ">
             <h1 className="text-5xl font-bold mb-4">{blog.title}</h1>
-            <p className="text-gray-700 dark:text-gray-300 italic">{`by ${blog.author} ${blog.date}`}</p>
+            <p className="text-gray-700 dark:text-gray-300 italic">{`by Kuldeep ${blog.date}`}</p>
             <blockquote className="border-l-4 border-blue-500 italic pl-4 mt-4 rounded-l-sm">
                 <p>This is a quote.</p>
             </blockquote>
