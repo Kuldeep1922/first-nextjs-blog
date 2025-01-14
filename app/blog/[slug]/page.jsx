@@ -1,4 +1,4 @@
-import OnThisPage from "@/components/onThisPage";
+import OnThisPage from "@/components/OnThisPage.js";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import fs from "fs"
 import matter from "gray-matter";
