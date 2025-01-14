@@ -1,101 +1,227 @@
+"use client"
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Navbar from "@/components/ui/Navbar";
 import Image from "next/image";
-
+import Typed from "typed.js";
+import React,{useRef,useEffect} from "react";
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+   const el = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+   useEffect(() => {
+     const typed = new Typed(el.current, {
+      strings: ["Coding", "Machine Learning", "Data Science", "Developement"],
+       typeSpeed: 50,
+     });
+
+     return () => {
+       // Destroy Typed instance during cleanup to stop animation
+       typed.destroy();
+     };
+   }, []);
+   
+  return (
+    <div>
+      <section className="bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png')] bg-cover bg-no-repeat md:bg-white md:dark:bg-gray-900">
+        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+          <div className="mr-auto place-self-center lg:col-span-7">
+            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+              Payments tool for software companies <span ref={el} className="underline"/>
+            </h1>
+            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+              From checkout to global sales tax compliance, companies around the
+              world use Flowbite to simplify their payment stack.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+            >
+              Get started
+              <svg
+                className="w-5 h-5 ml-2 -mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+            >
+              Speak to Sales
+            </a>
+          </div>
+          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <img
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
+              alt={"mockup"}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+      <section className="py-12 bg-gray-100 dark:bg-gray-800">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8 text-black dark:text-white">
+            Pricing Plans
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mx-4 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
+                Basic
+              </h3>
+              <p className="text-2xl font-bold mb-4 text-black dark:text-white">
+                $10/month
+              </p>
+              <p className="mb-4 text-black dark:text-white">
+                Basic features for individuals.
+              </p>
+              <button className="shadsc-button shadsc-button-primary bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Choose Plan
+              </button>
+            </div>
+            <div className="mx-4 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg border-2 border-yellow-500 transform transition-transform duration-300 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
+                Standard
+              </h3>
+              <p className="text-2xl font-bold mb-4 text-black dark:text-white">
+                $20/month
+              </p>
+              <p className="mb-4 text-black dark:text-white">
+                Standard features for small teams.
+              </p>
+              <button className="shadsc-button shadsc-button-primary bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Choose Plan
+              </button>
+            </div>
+            <div className="mx-4 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
+                Premium
+              </h3>
+              <p className="text-2xl font-bold mb-4 text-black dark:text-white">
+                $30/month
+              </p>
+              <p className="mb-4 text-black dark:text-white">
+                All features for large organizations.
+              </p>
+              <button className="shadsc-button shadsc-button-primary bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Choose Plan
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-12 bg-gray-200 dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8 text-black dark:text-white">
+            Our Features
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg mx-4">
+              <Image
+                src="/images/f1.png" // Replace with your image path
+                alt="Feature 1"
+                width={300}
+                height={200}
+                className="mb-4 rounded"
+              />
+              <h4 className="font-semibold text-black dark:text-white">
+                Feature One
+              </h4>
+              <p className="text-gray-600 dark:text-gray-300">
+                Description of Feature One.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg mx-4">
+              <Image
+                src="/images/f1.png" // Replace with your image path
+                alt="Feature 2"
+                width={300}
+                height={200}
+                className="mb-4 rounded"
+              />
+              <h4 className="font-semibold text-black dark:text-white">
+                Feature Two
+              </h4>
+              <p className="text-gray-600 dark:text-gray-300">
+                Description of Feature Two.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg mx-4">
+              <Image
+                src="/images/f3.png" // Replace with your image path
+                alt="Feature 3"
+                width={300}
+                height={200}
+                className="mb-4 rounded"
+              />
+              <h4 className="font-semibold text-black dark:text-white">
+                Feature Three
+              </h4>
+              <p className="text-gray-600 dark:text-gray-300">
+                Description of Feature Three.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 bg-gray-200 dark:bg-gray-900 ">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8 text-black dark:text-white">
+            Our Blogs
+          </h2>
+          <p className="mb-8 text-gray-600 dark:text-gray-300">
+            Welcome to our blog section where we share insights, tips, and
+            stories from our team. Stay tuned for the latest updates and
+            articles that inspire and inform.
+          </p>
+          <div className="relative">
+            <Carousel className="w-full overflow-hidden relative">
+              <CarouselContent className="flex gap-6">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <CarouselItem key={index} className="flex-none w-1/3">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+                          <h4 className="font-semibold text-black dark:text-white mb-2">
+                            Blog Title {index + 1}
+                          </h4>
+                          <p className="mb-4 text-gray-600 dark:text-gray-300">
+                            A brief description of the blog post goes here.
+                          </p>
+                          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">
+                            Read More
+                          </button>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {/* Previous Button */}
+              <CarouselPrevious className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow hover:bg-gray-700">
+                ←
+              </CarouselPrevious>
+              {/* Next Button */}
+              <CarouselNext className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow hover:bg-gray-700">
+                →
+              </CarouselNext>
+            </Carousel>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
